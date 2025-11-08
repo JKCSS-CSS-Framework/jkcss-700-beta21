@@ -1,0 +1,31 @@
+.flex {
+    display: flex !important;
+}
+
+.inline-flex {
+    display: inline-flex !important;
+}
+
+.grid {
+    display: grid !important;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
+.items-center {
+    align-items: center !important;
+}
+
+.justify-between {
+    justify-content: space-between !important;
+}
+
+.w-full {
+    width: 100% !important;
+}
+
+.h-full {
+    height: 100% !important;
+}

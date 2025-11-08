@@ -1,0 +1,6 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@include generate-transition-duration-classes($transition-durations);
+
+

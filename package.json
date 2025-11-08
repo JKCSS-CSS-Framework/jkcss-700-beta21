@@ -1,0 +1,17 @@
+{
+  "name": "jkcss-700-beta21",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "sass scss/jkcss.scss dist/jkcss.css",
+    "build-css:min": "sass scss/jkcss.scss dist/jkcss.min.css --style=compressed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.93.3"
+  }
+}

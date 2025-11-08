@@ -1,0 +1,68 @@
+// Convert hex to HSL
+@function hex-to-hsl($color) {
+    $r: red($color) / 255;
+    $g: green($color) / 255;
+    $b: blue($color) / 255;
+
+    $max: max($r, $g, $b);
+    $min: min($r, $g, $b);
+    $h: 0;
+    $s: 0;
+    $l: (
+        $max + $min) / 2;
+
+    $d: $max - $min;
+
+    @if $d !=0 {
+        @if $max ==$r {
+            $h: 60 * mod((($g - $b)/$d), 6
+            );
+    }
+
+    @else if $max ==$g {
+        $h: 60 * ((($b - $r)/$d) + 2);
+    }
+
+    @else if $max ==$b {
+        $h: 60 * ((($r - $g)/$d) + 4);
+    }
+
+    $s: $d / (1 - abs(2 * $l - 1));
+}
+
+@return ($h, $s * 100%, $l * 100%);
+}
+
+// Generate shade from lightness percent
+@function shade-hsl($color, $lightness-percent) {
+    $hsl: hex-to-hsl($color);
+    $h: nth($hsl, 1);
+    $s: nth($hsl, 2);
+    $l: $lightness-percent;
+    @return hsl($h, $s, $l);
+}
+
+// Generate 50–950 shades
+@function generate-shades($color) {
+    $shades: (
+    );
+$lightness-map: (
+    50:95%,
+    100:90%,
+    200:80%,
+    300:70%,
+    400:60%,
+    500:50%,
+    600:40%,
+    700:30%,
+    800:20%,
+    900:10%,
+    950:5%
+);
+
+@each $shade, $l in $lightness-map {
+    $shades: map-merge($shades, ($shade: shade-hsl($color, $l)));
+}
+
+@return $shades;
+}

@@ -1,0 +1,4 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@include generate-rounded-classes($radius-scale);

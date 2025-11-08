@@ -1,0 +1,4 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@include generate-spacing-classes($spacing-scale);

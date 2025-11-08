@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "sass:meta";
+@use "color-utils" as *; // functions above
+@use "variables" as *;
+
+// Build full colors map from $base-colors
+$colors: (
+);
+
+@each $name, $base in $base-colors {
+    $shades: generate-shades-for($base);
+    $colors: map.merge($colors, ($name: $shades));
+}
+
+// Emit CSS variables under :root
+:root {
+    @each $name, $shades in $colors {
+        @each $shade, $value in $shades {
+            --#{$name}-#{$shade}: #{$value};
+        }
+    }
+
+    // helpful CSS aliases for direct use (optional)
+    @each $name, $shades in $colors {
+        --#{$name}: var(--#{$name}-500);
+    }
+}

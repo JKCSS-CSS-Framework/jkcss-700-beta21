@@ -1,0 +1,136 @@
+@use "variables" as *;
+@use "color-utils" as utils;
+
+// Background
+@mixin generate-bg-classes($colors) {
+    @each $name, $color in $colors {
+        $shades: utils.generate-shades($color);
+
+        @each $shade, $value in $shades {
+
+            // Normal background
+            .bg-#{$name}-#{$shade} {
+                background-color: $value;
+            }
+
+            // Tailwind-style hover
+            .hover\:bg-#{$name}-#{$shade}:hover {
+                background-color: $value;
+            }
+        }
+    }
+}
+
+// Text
+@mixin generate-text-classes($colors) {
+    @each $name, $color in $colors {
+        $shades: utils.generate-shades($color);
+
+        @each $shade, $value in $shades {
+
+            // Normal text
+            .text-#{$name}-#{$shade} {
+                color: $value;
+            }
+
+            // Tailwind-style hover text
+            .hover\:text-#{$name}-#{$shade}:hover {
+                color: $value;
+            }
+        }
+    }
+}
+
+// Spacing
+@mixin generate-spacing-classes($scale) {
+    @each $k, $v in $scale {
+        .m-#{$k} {
+            margin: $v;
+        }
+
+        .p-#{$k} {
+            padding: $v;
+        }
+
+        .mx-#{$k} {
+            margin-left: $v;
+            margin-right: $v;
+        }
+
+        .my-#{$k} {
+            margin-top: $v;
+            margin-bottom: $v;
+        }
+
+        .px-#{$k} {
+            padding-left: $v;
+            padding-right: $v;
+        }
+
+        .py-#{$k} {
+            padding-top: $v;
+            padding-bottom: $v;
+        }
+    }
+}
+
+// Rounded
+@mixin generate-rounded-classes($radius-scale) {
+    @each $name, $v in $radius-scale {
+        @if $name ==DEFAULT {
+            .rounded {
+                border-radius: $v;
+            }
+        }
+
+        @else {
+            .rounded-#{$name} {
+                border-radius: $v;
+            }
+        }
+    }
+}
+
+// Shadows
+@mixin generate-shadow-classes($shadow-scale) {
+    @each $name, $v in $shadow-scale {
+        @if $name ==DEFAULT {
+            .shadow {
+                box-shadow: $v;
+            }
+        }
+
+        @else {
+            .shadow-#{$name} {
+                box-shadow: $v;
+            }
+        }
+    }
+}
+
+// Typography
+@mixin generate-font-size-classes($sizes) {
+    @each $name, $v in $sizes {
+        .text-#{$name} {
+            font-size: $v;
+        }
+    }
+}
+
+@mixin generate-font-weight-classes($weights) {
+    @each $name, $v in $weights {
+        .font-#{$name} {
+            font-weight: $v;
+        }
+    }
+}
+
+// Transitions
+@mixin generate-transition-duration-classes($durations) {
+    @each $name, $value in $durations {
+        .duration-#{$name} {
+            transition-duration: $value;
+        }
+    }
+}
+

@@ -1,0 +1,6 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@include generate-text-classes($colors);
+@include generate-font-size-classes($font-sizes);
+@include generate-font-weight-classes($font-weights);
