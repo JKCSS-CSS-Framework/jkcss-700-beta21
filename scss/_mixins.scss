@@ -134,3 +134,11 @@
     }
 }
 
+// borders
+@mixin genarate-border-size-classes($border-full){
+    @each $name, $value in $border-full {
+        .border-#{$name} {
+            border-width: $value;
+        }
+    }
+}

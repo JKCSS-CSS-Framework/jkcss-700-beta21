@@ -1,0 +1,4 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@include genarate-border-size-classes($border-full)
