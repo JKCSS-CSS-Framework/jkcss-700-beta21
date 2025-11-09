@@ -3,3 +3,7 @@
 
 @include genarate-border-size-classes($border-full);
 @include genarate-border-color-classes($colors);
+@include genarate-border-right-size-classes($border-full);
+@include genarate-border-left-size-classes($border-full);
+@include genarate-border-top-size-classes($border-full);
+@include genarate-border-bottom-size-classes($border-full);
