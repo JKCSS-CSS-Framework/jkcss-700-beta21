@@ -75,7 +75,7 @@ $transition-durations: (
 
 // border-full
 $border-full: (
-    0: 0,
+    "none": 0,
     1: 0.25rem,
     2: 0.5rem,
     3: 0.75rem,
@@ -84,4 +84,13 @@ $border-full: (
     6: 1.5rem,
     8: 2rem,
     10: 2.5rem
+);
+
+// border-styles
+$border-styles: (
+    "solid": "solid",
+    "dashed": "dashed",
+    "dotted": "dotted",
+    "double": "double",
+    "hidden": "hidden"
 )

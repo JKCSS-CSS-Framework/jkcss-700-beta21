@@ -138,7 +138,65 @@
 @mixin genarate-border-size-classes($border-full){
     @each $name, $value in $border-full {
         .border-#{$name} {
+            border-style: solid;
             border-width: $value;
         }
     }
 }
+
+// border colrs
+@mixin genarate-border-color-classes($colors){
+    @each $name, $value in $colors {
+        .border-#{$name} {
+            border-style: solid;
+            border-color: $value;
+        }
+    }
+}
+
+
+
+// border right
+@mixin genarate-border-right-size-classes($border-full){
+    @each $name, $value in $border-full {
+        .border-r-#{$name} {
+            border-style: solid;
+            border-width: 0 $value 0 0;
+        }
+    }
+}
+
+
+
+// border left
+@mixin genarate-border-left-size-classes($border-full){
+    @each $name, $value in $border-full {
+        .border-l-#{$name} {
+            border-style: solid;
+            border-width: 0 0 0 $value;
+        }
+    }
+}
+
+
+// border top
+@mixin genarate-border-top-size-classes($border-full){
+    @each $name, $value in $border-full {
+        .border-t-#{$name} {
+            border-style: solid;
+            border-width: $value 0 0 0;
+        }
+    }
+}
+
+
+// border bottom
+@mixin genarate-border-bottom-size-classes($border-full){
+    @each $name, $value in $border-full {
+        .border-b-#{$name} {
+            border-style: solid;
+            border-width: 0 0 $value 0;
+        }
+    }
+}
+
